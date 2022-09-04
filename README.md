@@ -1,46 +1,23 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DEMO: https://samsa13.github.io/get-short-link
 
-## Available Scripts
+Тестовое задание для Hex.team.
 
-In the project directory, you can run:
+Основной функционал сервиса - получение по произвольной ссылке (например https://docs.docker.com/engine/reference/commandline/attach/) короткой ссылки (http://79.143.31.216/s/7ASMU), реализующей перенаправление пользователя на исходную страницу. Это может быть удобно для отправки в SMS или Twitter, где размер сообщения ограничен. Помимо этого, пользователь, создавший укороченную ссылку, может просматривать количество переходов по этой ссылке. Эта информация будет недоступна остальным пользователям.
 
-### `npm start`
+В итоге пользователь должен мочь зарегистрироваться на сайте, авторизоваться, создать произвольное количество сокращенных ссылок и просматривать количество переходов по каждой из них.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Система должна хранить всю информацию (о пользователях, сокращенных ссылках, количествах переходов), а также генерировать сокращенные ссылки на стороне backend-а, который уже реализован, и интерактивная документация по которому доступна по ссылке http://79.143.31.216/docs.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Frontend может состоять из нескольких страниц (главное наличие функциональности):
 
-### `npm test`
+Страница регистрации
+Страница авторизации
+Основная страница, реализующая следующую функциональность:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Просмотр статистики по созданным ссылкам в виде таблиц
+Таблица содержит минимум три столбца - короткая ссылка, исходная ссылка, количество переходов по короткой ссылке
+Таблица должна иметь пагинацию, работающую на стороне сервера
+Таблица должна иметь возможность сортировки по столбцам
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Можно использовать любые сторонние библиотеки и фреемворки.
