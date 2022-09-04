@@ -12,7 +12,7 @@ export const StatActionCreators = {
         try {
             const response = await axios({
                 method: 'get',
-                url: 'http://79.143.31.216/statistics?order='+ order + '&offset=' + offset + '&limit=' + limit,
+                url: 'https://79.143.31.216/statistics?order='+ order + '&offset=' + offset + '&limit=' + limit,
                 data: '',
                 headers: {
                     Authorization: 'Bearer ' + token.access_token

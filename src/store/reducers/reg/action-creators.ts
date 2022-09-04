@@ -12,7 +12,7 @@ export const RegActionCreators = {
     reg: (username: string, password: string) => async (dispatch: AppDispatch) => {
         try {
             dispatch(RegActionCreators.setIsLoading(true));
-            const response = await axios.post('http://79.143.31.216/register?username=' + username + '&password=' +  password)
+            const response = await axios.post('https://79.143.31.216/register?username=' + username + '&password=' +  password)
             if (response.status === 200) {
                 dispatch(RegActionCreators.setIsReg(true));
                 dispatch(RegActionCreators.setUser({ username: username, password: password }));  

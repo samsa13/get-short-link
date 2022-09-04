@@ -14,7 +14,7 @@ export const LinkActionCreators = {
             dispatch(LinkActionCreators.setIsLoading(true));
             const response = await axios({
                 method: 'post',
-                url: 'http://79.143.31.216/squeeze?link=' + encodeURI(link),
+                url: 'https://79.143.31.216/squeeze?link=' + encodeURI(link),
                 data: '',
                 headers: {
                     Authorization: 'Bearer ' + token.access_token

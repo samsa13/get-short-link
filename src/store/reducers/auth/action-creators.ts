@@ -13,7 +13,7 @@ export const AuthActionCreators = {
     login: (username: string, password: string) => async (dispatch: AppDispatch) => {
         try {
             dispatch(AuthActionCreators.setIsLoading(true));
-            const response = await axios.post('http://79.143.31.216/login', 'grant_type=&username='+ username +'&password='+ password +'&scope=&client_id=&client_secret=');
+            const response = await axios.post('https://79.143.31.216/login', 'grant_type=&username='+ username +'&password='+ password +'&scope=&client_id=&client_secret=');
             if (response.status === 200) {
                 const token:IResp = response.data;
                 dispatch(AuthActionCreators.setToken(token));
