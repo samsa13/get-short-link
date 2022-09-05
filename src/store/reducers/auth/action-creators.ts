@@ -15,7 +15,7 @@ export const AuthActionCreators = {
             dispatch(AuthActionCreators.setIsLoading(true));
             const response = await axios({
                 method: 'post',
-                url: 'http://79.143.31.216/login',
+                url: 'https://79.143.31.216/login',
                 data: 'grant_type=&username=' + username + '&password=' + password + '&scope=&client_id=&client_secret=',
                 headers: {
                     accept: 'application/json',

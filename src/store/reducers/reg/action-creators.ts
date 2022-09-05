@@ -18,7 +18,7 @@ export const RegActionCreators = {
                 url: 'https://79.143.31.216/register?username=' + username + '&password=' +  password,
                 data: '',
                 headers: {
-                    accept: 'application/json',
+                    'accept': 'application/json',
                 }
             })
           
