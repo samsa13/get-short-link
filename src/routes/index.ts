@@ -10,9 +10,9 @@ export interface IRoute {
 }
 
 export enum RoutNames {
-    LOGIN = '/get-short-link/',
-    REG = '/get-short-link/reg',
-    MAIN_PAGE = '/get-short-link/main'
+    LOGIN = '/',
+    REG = '/reg',
+    MAIN_PAGE = '/main'
 }
 
 export const publicRoutes: IRoute[] = [

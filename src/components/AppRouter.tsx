@@ -5,8 +5,8 @@ import { privateRoutes, publicRoutes, } from '../routes'
 
 const AppRouter = () => {
 
-  const { isAuth, user } = useTypedSelector(state => state.isAuth)
-
+ const { isAuth } = useTypedSelector(state => state.isAuth)
+ //const isAuth = false;
   return (
     <Routes>
       {isAuth

@@ -8,25 +8,28 @@ import { StatAction, StatActionEnum } from "./types";
 export const StatActionCreators = {
     setStat: (payload: [IStat]): StatAction => ({ type: StatActionEnum.SET_STATISTICS, payload }),
     setError: (payload: string): StatAction => ({ type: StatActionEnum.SET_ERROR, payload }),
-    getStatistics: (order: string, offset: string, limit: string, token: IResp) => async (dispatch: AppDispatch) => {
+    getStatistics: (order: string, offset: string, limit: string, token: string) => async (dispatch: AppDispatch) => {
         try {
             const response = await axios({
                 method: 'get',
                 url: 'https://79.143.31.216/statistics?order='+ order + '&offset=' + offset + '&limit=' + limit,
-                data: '',
                 headers: {
-                    Authorization: 'Bearer ' + token.access_token
+                    'accept': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 }
             })
 
             if (response.status === 200) {
                 dispatch(StatActionCreators.setStat(response.data));
             } else {
-                dispatch(StatActionCreators.setError('Пользователь уже зарегистрирован'))
+                dispatch(StatActionCreators.setError('Произошла ошибка при загрузке созданных ссылок'))
+                alert(response.data)
             }
         } catch (e) {
-            dispatch(StatActionCreators.setError('Произошла ошибка при логине'));
-           // alert(e)
+            dispatch(StatActionCreators.setError('Произошла ошибка при загрузке созданных ссылок'));
+            alert(e);
+            console.log(token);
+            
         }
     },
 

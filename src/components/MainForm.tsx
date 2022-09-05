@@ -1,5 +1,4 @@
-import { Button, Form, Input, Row, Select, Table } from 'antd'
-import { Option } from 'antd/lib/mentions';
+import { Button, Form, Input, Select } from 'antd'
 import React, { useState, useEffect } from 'react'
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -81,8 +80,8 @@ const MainForm: React.FC = () => {
                 style={{ width: 120 }}
                 onChange={handleChange}>
                 {orders.map(order =>
-                    <Option key={order}>{order}
-                    </Option>
+                    <Select.Option key={order}>{order}
+                    </Select.Option>
                 )}
             </Select>
 

@@ -6,7 +6,7 @@ export interface AuthState {
     user: IUser;
     isLoading: boolean;
     error: string;
-    token: IResp
+    token: string
 }
 
 export enum AuthActionEnum {
@@ -35,7 +35,7 @@ interface SetIsLoadingAction {
 }
 interface SetTokenAction {
     type: AuthActionEnum.SET_TOKEN;
-    payload: IResp;
+    payload: string;
 }
 
 export type AuthAction = 

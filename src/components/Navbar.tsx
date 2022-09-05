@@ -1,4 +1,5 @@
 import { Layout, Menu, Row } from 'antd'
+import MenuItem from 'antd/lib/menu/MenuItem';
 import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useActions } from '../hooks/useActions';
@@ -34,29 +35,29 @@ const Navbar: FC = () => {
                      <Menu theme="dark"
                         mode="horizontal"
                         selectable={false}>
-                        <Menu.Item
+                        <MenuItem
                             onClick={exit}
                             key={2}
                         >
                             Выйти
-                        </Menu.Item>
+                        </MenuItem>
                     </Menu>
                     </>
                     : <Menu theme="dark"
                     mode="horizontal"
                     selectable={false}>
-                    <Menu.Item
+                    <MenuItem
                         onClick={goToLogin}
                         key={1}
                     >
                         Войти
-                    </Menu.Item>
-                    <Menu.Item
+                    </MenuItem>
+                    <MenuItem
                         onClick={goToReg}
                         key={2}
                     >
                         Зарегистрироваться
-                    </Menu.Item>
+                    </MenuItem>
                     
                 </Menu>
                 }

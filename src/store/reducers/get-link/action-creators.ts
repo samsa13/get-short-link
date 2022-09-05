@@ -9,7 +9,7 @@ export const LinkActionCreators = {
     setShortLink: (shortLink: string): LinkAction => ({ type: LinkActionEnum.SET_SHORT_LINK, payload: shortLink }),
     setIsLoading: (payload: boolean): LinkAction => ({ type: LinkActionEnum.SET_IS_LOADING, payload }),
     setError: (payload: string): LinkAction => ({ type: LinkActionEnum.SET_ERROR, payload }),
-    postLink: (link: string, token: IResp) => async (dispatch: AppDispatch) => {
+    postLink: (link: string, token: string) => async (dispatch: AppDispatch) => {
         try {
             dispatch(LinkActionCreators.setIsLoading(true));
             const response = await axios({
@@ -17,9 +17,11 @@ export const LinkActionCreators = {
                 url: 'https://79.143.31.216/squeeze?link=' + encodeURI(link),
                 data: '',
                 headers: {
-                    Authorization: 'Bearer ' + token.access_token
+                    'accept': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 }
             })
+
             if (response.status === 200) {
                 dispatch(LinkActionCreators.setLink(link));  
                 dispatch(LinkActionCreators.setShortLink(response.data.short)); 

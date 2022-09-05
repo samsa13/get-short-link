@@ -7,7 +7,7 @@ const initialState: AuthState = {
     error: '',
     isLoading: false,
     user: {} as IUser,
-    token: {} as IResp
+    token: ''
 }
 
 export default function authReducer(state = initialState, action: AuthAction): AuthState {

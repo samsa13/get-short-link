@@ -4,7 +4,6 @@ import LoginForm from '../components/LoginForm';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const Login: FC = () => {
-const {isAuth} = useTypedSelector(state=> state.isAuth)
   return (
     <Layout>
       <Row justify='center' align='middle' className='full-height'>
