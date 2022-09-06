@@ -17,8 +17,8 @@ const RegForm :React.FunctionComponent = () => {
     const submit = () => {
         reg(username, password);
         isReg
-        ?navigate(RoutNames.LOGIN)
-        :navigate(RoutNames.REG)
+        ? navigate(RoutNames.LOGIN)
+        : navigate(RoutNames.REG)
     }
 
     const handleUsername: React.ChangeEventHandler<HTMLInputElement> = (e) => setUsername(e.target.value);

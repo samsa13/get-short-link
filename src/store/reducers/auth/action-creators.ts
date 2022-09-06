@@ -15,15 +15,16 @@ export const AuthActionCreators = {
             dispatch(AuthActionCreators.setIsLoading(true));
             const response = await axios({
                 method: 'post',
-                url: 'https://79.143.31.216/login',
+                url: 'http://79.143.31.216/login',
                 data: 'grant_type=&username=' + username + '&password=' + password + '&scope=&client_id=&client_secret=',
                 headers: {
-                    accept: 'application/json',
-                    contentType: 'application/x-www-form-urlencoded',
+                    'accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 }
             })
          
             if (response.status === 200) {
+                dispatch(AuthActionCreators.setError(''));
                 const token: string = response.data.access_token;
                 dispatch(AuthActionCreators.setToken(token));
                 dispatch(AuthActionCreators.setIsAuth(true));
@@ -44,5 +45,6 @@ export const AuthActionCreators = {
         dispatch(AuthActionCreators.setIsAuth(false));
         localStorage.removeItem('isAuth');
         localStorage.removeItem('username');
+        localStorage.removeItem('token');
     }
 }

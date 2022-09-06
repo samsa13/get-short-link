@@ -14,7 +14,10 @@ export const LinkActionCreators = {
             dispatch(LinkActionCreators.setIsLoading(true));
             const response = await axios({
                 method: 'post',
-                url: 'https://79.143.31.216/squeeze?link=' + encodeURI(link),
+                url: 'http://79.143.31.216/squeeze',
+                params:{
+                    link: encodeURI(link),
+                },
                 data: '',
                 headers: {
                     'accept': 'application/json',
@@ -25,6 +28,7 @@ export const LinkActionCreators = {
             if (response.status === 200) {
                 dispatch(LinkActionCreators.setLink(link));  
                 dispatch(LinkActionCreators.setShortLink(response.data.short)); 
+                dispatch(LinkActionCreators.setError(''))
             } else {
                 dispatch(LinkActionCreators.setError('Введена некорректная ссылка'))
             }

@@ -21,6 +21,7 @@ const MainForm: React.FC = () => {
 
     const submit = () => {
         postLink(link, token);
+        setLink('');
     }
 
     const handleLink: React.ChangeEventHandler<HTMLInputElement> = e => setLink(e.target.value);

@@ -14,7 +14,7 @@ const App: FC = () => {
     if (localStorage.getItem('isAuth')) {
       setUser({ username: localStorage.getItem('username' || '') } as IUser);
       setIsAuth(true);
-
+      setToken( localStorage.getItem('token') || '' );
     }
 
   }, [])

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { AppDispatch } from "../..";
 import { IUser } from "../../../models/IUser";
-import { AuthActionCreators } from "../auth/action-creators";
 import { RegAction, RegActionEnum } from "./types";
 
 export const RegActionCreators = {
@@ -15,7 +14,11 @@ export const RegActionCreators = {
            
             const response = await axios({
                 method: 'post',
-                url: 'https://79.143.31.216/register?username=' + username + '&password=' +  password,
+                url: 'http://79.143.31.216/register',
+                params: {
+                    username,
+                    password
+                },
                 data: '',
                 headers: {
                     'accept': 'application/json',
@@ -23,15 +26,16 @@ export const RegActionCreators = {
             })
           
             if (response.status === 200) {
+                dispatch(RegActionCreators.setError(''))
                 dispatch(RegActionCreators.setIsReg(true));
-                dispatch(RegActionCreators.setUser({ username: username, password: password }));  
+                dispatch(RegActionCreators.setUser({ username, password }));  
             } else {
                 dispatch(RegActionCreators.setError('Пользователь уже зарегистрирован'))
             }
             dispatch(RegActionCreators.setIsLoading(false))
         } catch (e) {
             dispatch(RegActionCreators.setError('Произошла ошибка при регистрации пользователя'));
-         //   alert(e)
+            alert(e)
         }
     },
 

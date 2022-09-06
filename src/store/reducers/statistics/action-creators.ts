@@ -12,7 +12,12 @@ export const StatActionCreators = {
         try {
             const response = await axios({
                 method: 'get',
-                url: 'https://79.143.31.216/statistics?order='+ order + '&offset=' + offset + '&limit=' + limit,
+                url: 'http://79.143.31.216/statistics',
+                params: {
+                    order,
+                    offset,
+                    limit
+                },
                 headers: {
                     'accept': 'application/json',
                     'Authorization': 'Bearer ' + token
@@ -20,6 +25,7 @@ export const StatActionCreators = {
             })
 
             if (response.status === 200) {
+                dispatch(StatActionCreators.setError(''));
                 dispatch(StatActionCreators.setStat(response.data));
             } else {
                 dispatch(StatActionCreators.setError('Произошла ошибка при загрузке созданных ссылок'))
